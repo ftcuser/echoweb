@@ -1,0 +1,11 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - mvn -f usermanager/pom.xml package
+
+artifacts:
+  files:
+    - usermanager/target/usermanager.war
+  discard-paths: yes
