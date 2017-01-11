@@ -56,7 +56,7 @@ public class HomePageTest {
 	  //@Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
 		System.out.println(driver.getTitle());
-	    assertEquals("The page title should equal Google at the start of the test.", "Echoweb", driver.getTitle());
+	    assertEquals("The page title should equal Google at the start of the test.", "User Manager", driver.getTitle());
 	    
 	    addUserButton = driver.findElement(By.id("btnAddUser"));
 	    
