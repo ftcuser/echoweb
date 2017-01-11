@@ -11,7 +11,7 @@ controllers.homeController = function($scope){
 	$scope.icons = [{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"},{"value":"Heart","label":"<i class=\"fa fa-heart\"></i> Heart"},{"value":"Camera","label":"<i class=\"fa fa-camera\"></i> Camera"}];
 };
 
-controllers.employeeController = function($scope, $http) {
+controllers.employeeController = function($scope, $http, UserService) {
 	
 	  $scope.editMode = false;
 	  $scope.actionLabel = "Add";
@@ -20,18 +20,13 @@ controllers.employeeController = function($scope, $http) {
 		.then(function(response){
 			$scope.users = response.data;
 		});
-	  
+	 
 	  	//bind JavaScript function
 	  	$scope.editUser = function(email) {
 			console.log(email);
 			$scope.actionLabel = "Update";
-			for (i = 0; i < $scope.users.length; i++) {
-			   if($scope.users[i].email == email){
-				   $scope.user = $scope.users[i];
-				   $scope.editMode = true;
-				   break;
-			   }
-			}
+			$scope.user = UserService.getUserByEmail(email, $scope.users);
+			$scope.editMode = true;
 		};
 		
 		$scope.addUser = function() {
@@ -45,38 +40,18 @@ controllers.employeeController = function($scope, $http) {
 		
 		$scope.updateUser = function() {
 			 $scope.editMode = false;
-			 var data = $.param({
-		        json: JSON.stringify($scope.user)
-		      });
-			 var dataObj = {
-						firstName : $scope.user.firstName,
-						lastName : $scope.user.lastName,
-						email : $scope.user.email
-				};	
-			 	console.log(dataObj);
-			   $http.post("servlet/adduser", dataObj).success(function(data, status) {
-		            $scope.users = data;
-		       })
+			 $http.post("servlet/adduser", UserService.getUserDataObj($scope.user))
+			 	.then(function(success){
+			 		$scope.users = success.data;
+			 	});
 		};
 		
 		$scope.deleteUser = function(email) {
-			for (i = 0; i < $scope.users.length; i++) {
-				   if($scope.users[i].email == email){					   
-					  
-					    var dataObj = {
-						   firstName : $scope.users[i].firstName,
-						   lastName : $scope.users[i].lastName,
-						   email : $scope.users[i].email
-					   };	
-					   console.log(dataObj);
-					   $http.post("servlet/deleteuser", dataObj).success(function(data, status) {
-						   $scope.users = data;
-					   })
-					  
-					   break;
-				   }
-				}
-			
+			var user = UserService.getUserByEmail(email, $scope.users);			
+			$http.post("servlet/deleteuser", UserService.getUserDataObj(user))
+				.then(function(success){
+					$scope.users = success.data;
+				});
 			$scope.editMode = false;
 		};
 };
