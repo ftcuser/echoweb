@@ -6,10 +6,10 @@ module.exports = function(config){
 			   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js',
 			   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js',
 			   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-mocks.js',
-		       'scripts/app-test.js',
-		       'scripts/services/echo-service.js', 
-		       'scripts/services/userwebservice.js',		  
-		       'spec/unit/*.js'
+		       'src/main/webapp/scripts/app-test.js',
+		       'src/main/webapp/scripts/services/echo-service.js', 
+		       'src/main/webapp/scripts/services/userwebservice.js',		  
+		       'src/main/webapp/spec/unit/*.js'
 		       ]
 	});
 };
