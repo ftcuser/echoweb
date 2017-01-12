@@ -1,4 +1,4 @@
-myApp.factory('UserService', function(){
+angular.module("EchoWebAppModule").factory('UserService', function(){
 	return {
 		getUserByEmail : function(email, users) {
 			var user;
@@ -11,17 +11,13 @@ myApp.factory('UserService', function(){
 			return user;
 		},
 		
-		getUserDataObj : function(user) {
-			
+		getUserDataObj : function(user) {			
 		    var dataObj = {
 					   firstName : user.firstName,
 					   lastName : user.lastName,
 					   email : user.email
-		    };	
-		    
+		    };			    
 		    return dataObj;
-		}
-	
-	
+		}	
 	}
 });

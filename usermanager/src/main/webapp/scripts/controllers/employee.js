@@ -1,17 +1,4 @@
-var controllers = {};
-
-controllers.homeController = function($scope){
-	$scope.message = "Hello,  This is the home page!";
-	$scope.modal = {
-		title: 'Title', 
-		content: 'Hello Modal<br />This is a multiline message!'
-	};
-	$scope.selectedIcon = "";
-	$scope.selectedIcons = ["Globe","Heart"];
-	$scope.icons = [{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"},{"value":"Heart","label":"<i class=\"fa fa-heart\"></i> Heart"},{"value":"Camera","label":"<i class=\"fa fa-camera\"></i> Camera"}];
-};
-
-controllers.employeeController = function($scope, $http, UserService) {
+angular.module('EchoWebAppModule').controller('employeeController', function($scope, $http, UserService, EchoService) {
 	
 	  $scope.editMode = false;
 	  $scope.actionLabel = "Add";
@@ -20,7 +7,7 @@ controllers.employeeController = function($scope, $http, UserService) {
 		.then(function(response){
 			$scope.users = response.data;
 		});
-	 
+	  	$scope.message = EchoService.hello();
 	  	//bind JavaScript function
 	  	$scope.editUser = function(email) {
 			console.log(email);
@@ -36,6 +23,10 @@ controllers.employeeController = function($scope, $http, UserService) {
 			$scope.user.email = '';
 			$scope.editMode = true;
 			$scope.actionLabel = "Add";
+		};
+		
+		$scope.cancelUpdate = function() {
+			$scope.editMode = false;
 		};
 		
 		$scope.updateUser = function() {
@@ -54,13 +45,4 @@ controllers.employeeController = function($scope, $http, UserService) {
 				});
 			$scope.editMode = false;
 		};
-};
-
-controllers.gridsController = function($scope) {
-
-};
-controllers.formController = function($scope) {
-
-};
-
-myApp.controller(controllers);
+});

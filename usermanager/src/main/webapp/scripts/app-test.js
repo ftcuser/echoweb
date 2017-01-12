@@ -1,4 +1,4 @@
-angular.module("EchoWebAppModule", ["ngRoute", "ngAnimate", "ngSanitize", "mgcrea.ngStrap", "datatables"])
+angular.module("EchoWebAppModule", ["ngRoute"])
 	.config(['$routeProvider', function($routeProvider){	
 		$routeProvider
 			.when("/home", {
