@@ -1,2 +1,2 @@
 FROM tomcat
-ADD target/echoweb.war /usr/local/tomcat/webapps
+ADD target/usermanager.war /usr/local/tomcat/webapps
