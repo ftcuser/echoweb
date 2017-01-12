@@ -74,14 +74,14 @@ public class HomePageTest {
 	    	lastNameField = driver.findElement(By.id("lastName"));
 	    	lastNameField.sendKeys("Smith");
 	    	try{
-	    		Thread.sleep(5000);
+	    		Thread.sleep(2000);
 	    	} catch (Exception e){
 	    		
 	    	}
 	    	addButton = driver.findElement(By.id("btnSubmit"));
 	    	addButton.click();  
 	    	try{
-	    		Thread.sleep(5000);
+	    		Thread.sleep(2000);
 	    	} catch (Exception e){
 	    		
 	    	}
@@ -92,7 +92,7 @@ public class HomePageTest {
 	    	deleteButton.click();
 	    	
 	    	try{
-	    		Thread.sleep(5000);
+	    		Thread.sleep(2000);
 	    	} catch (Exception e){
 	    		
 	    	}
