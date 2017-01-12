@@ -89,7 +89,18 @@
 	    <artifactId>selenium-java</artifactId>
 	    <version>2.53.0</version>
 	 </dependency>
-	    
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-htmlunit-driver -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-htmlunit-driver</artifactId>
+	    <version>2.52.0</version>
+	</dependency>  
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-remote-driver</artifactId>
+	    <version>3.0.1</version>
+	 </dependency>
+	 
   </dependencies>
   <build>
     <finalName>usermanager</finalName>
@@ -102,6 +113,9 @@
           <systemPropertyVariables>
             <webdriver.chrome.driver>/Users/stevenwang/Documents/Apps/chromedriver</webdriver.chrome.driver>         
           </systemPropertyVariables>
+          <excludes>
+            <exclude>**/HomePageTest.java</exclude>
+          </excludes>
         </configuration>
       </plugin>
       
