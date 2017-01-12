@@ -10,7 +10,7 @@ import echoweb.bean.WebUserBean;
 
 public class UserServiceTest {
 	
-
+	@Test
 	public void serviceTest() {
 		
 		WebUserService service = new WebUserServiceImpl();
@@ -27,6 +27,12 @@ public class UserServiceTest {
 		
 		service.deleteUser(userBean.getEmail());
 		userCount = 0;
+		try{
+			Thread.sleep(2000);
+		}catch(Exception e) {
+			
+		}
+		users = service.getUserList();
 		for(WebUserBean user : users) {
 			if("joe@test.com".equals(user.getEmail())) {
 				userCount ++;
