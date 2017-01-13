@@ -35,9 +35,9 @@ public class WebUserServiceImpl implements WebUserService {
 	
 	//static AmazonDynamoDBClient dbClient = new AmazonDynamoDBClient(
         //    new ProfileCredentialsProvider()).withEndpoint("http://localhost:8000");
-	static AmazonDynamoDBClient dbClient = new AmazonDynamoDBClient(
-            new ProfileCredentialsProvider());
-	static DynamoDB dynamoDB = new DynamoDB(dbClient);
+	//static AmazonDynamoDBClient dbClient = new AmazonDynamoDBClient(
+        //    new ProfileCredentialsProvider());
+	static DynamoDB dynamoDB = new DynamoDB(new AmazonDynamoDBClient());
 	
 	static DynamoDBMapper mapper;
 
