@@ -138,7 +138,7 @@
 	      <version>1.4.1</version>
 	      <executions>
 	        <execution>
-	          <phase>test1</phase>
+	          <phase>test</phase>
 	          <goals>
 	            <goal>npm</goal>
 	            <goal>grunt</goal>
