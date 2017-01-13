@@ -114,9 +114,21 @@
             <webdriver.chrome.driver>/Users/stevenwang/Documents/Apps/chromedriver</webdriver.chrome.driver>         
           </systemPropertyVariables>
           <excludes>
-            <exclude>**/HomePageTest.java</exclude>
+          		<exclude>**/HomePageTest.java</exclude>
           </excludes>
         </configuration>
+        <executions>        
+ 		    <execution>
+		      <id>test</id>
+		      <goals>
+		        <goal>test</goal>
+		      </goals>
+		      <phase>test</phase>
+		      <configuration>
+		
+		      </configuration>
+		    </execution>       
+		  </executions>
       </plugin>
       
       <plugin>
@@ -125,11 +137,12 @@
 	      <version>1.4.1</version>
 	      <executions>
 	        <execution>
-	          <phase>frontunittest</phase>
+	          <phase>test</phase>
 	          <goals>
 	            <goal>npm</goal>
 	            <goal>grunt</goal>
 	          </goals>
+	          
 	        </execution>
 	      </executions>
 	   </plugin>

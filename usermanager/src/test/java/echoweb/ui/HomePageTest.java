@@ -4,17 +4,22 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,7 +29,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class HomePageTest {
 	
-	  private String baseUrl;
+	
 	  private WebDriver driver;
 	  private ScreenshotHelper screenshotHelper;
 	  private WebDriverWait driverWait;
@@ -35,28 +40,39 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
+	  private static String seleniumHub = "http://localhost:32768/wd/hub";
+	 // private static String baseUrl =  "http://localhost:8080/usermanager";
+	  private static String baseUrl =  "http://192.168.60.135:8080/usermanager";
 	  @Before
 	  public void openBrowser() {
-	    baseUrl = System.getProperty("webdriver.base.url");
-	    if(baseUrl == null) {
-	    	baseUrl = "http://localhost:8080/usermanager";
+	  
+	   // driver = new ChromeDriver();
+	    //driver = new HtmlUnitDriver();
+	    //((HtmlUnitDriver)driver).setJavascriptEnabled(true);
+	    URL hubUrl = null;
+	    try{
+	    	hubUrl = new URL(seleniumHub);
+	    }catch(Exception e){
+	    	
 	    }
-	    driver = new ChromeDriver();
+	    
+	    Capabilities cap = DesiredCapabilities.chrome();
+	    driver = new RemoteWebDriver(hubUrl, cap);
 	    driverWait = new WebDriverWait(driver, 30);
 	    driver.get(baseUrl);
-	    screenshotHelper = new ScreenshotHelper();
+	   // screenshotHelper = new ScreenshotHelper();
 	  }
 	  
 	  @After
 	  public void saveScreenshotAndCloseBrowser() throws IOException {
-	    screenshotHelper.saveScreenshot("screenshot.png");
+	   // screenshotHelper.saveScreenshot("screenshot.png");
 	    driver.quit();
 	  }
 	  
 	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
 		System.out.println(driver.getTitle());
-	    assertEquals("The page title should equal Google at the start of the test.", "User Manager", driver.getTitle());
+	    assertEquals("The page title should equal user manager at the start of the test.", "User Manager", driver.getTitle());
 	    
 	    addUserButton = driver.findElement(By.id("btnAddUser"));
 	    
