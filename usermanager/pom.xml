@@ -115,6 +115,7 @@
           </systemPropertyVariables>
           <excludes>
           		<exclude>**/HomePageTest.java</exclude>
+          		<exclude>**/UserServiceTest.java</exclude>         		
           </excludes>
         </configuration>
         <executions>        
