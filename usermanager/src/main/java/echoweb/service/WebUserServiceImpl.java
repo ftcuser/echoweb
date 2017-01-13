@@ -33,9 +33,10 @@ import echoweb.domain.WebUser;
 
 public class WebUserServiceImpl implements WebUserService {
 	
+	//static AmazonDynamoDBClient dbClient = new AmazonDynamoDBClient(
+        //    new ProfileCredentialsProvider()).withEndpoint("http://localhost:8000");
 	static AmazonDynamoDBClient dbClient = new AmazonDynamoDBClient(
-            new ProfileCredentialsProvider()).withEndpoint("http://localhost:8000");
-	
+            new ProfileCredentialsProvider());
 	static DynamoDB dynamoDB = new DynamoDB(dbClient);
 	
 	static DynamoDBMapper mapper;
