@@ -40,18 +40,29 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	  private static String seleniumHub = "http://localhost:32768/wd/hub";
-	 // private static String baseUrl =  "http://localhost:8080/usermanager";
-	  private static String baseUrl =  "http://192.168.60.135:8080/usermanager";
+	  private String seleniumHub = "http://192.168.60.135:32769/wd/hub";
+	  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
 	  @Before
 	  public void openBrowser() {
 	  
 	   // driver = new ChromeDriver();
 	    //driver = new HtmlUnitDriver();
 	    //((HtmlUnitDriver)driver).setJavascriptEnabled(true);
+		  
+		//try to get Selenium HUB and bas test URL from JVM parameters
+		String hub =  System.getProperty("selenium.hub");
+		if(hub == null) {
+			hub  = seleniumHub;
+		}
+		
+		String base = System.getProperty("app.baseurl");
+		if(base == null) {
+			base = baseUrl;
+		}
+		  
 	    URL hubUrl = null;
 	    try{
-	    	hubUrl = new URL(seleniumHub);
+	    	hubUrl = new URL(hub);
 	    }catch(Exception e){
 	    	
 	    }
@@ -59,7 +70,7 @@ public class HomePageTest {
 	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(hubUrl, cap);
 	    driverWait = new WebDriverWait(driver, 30);
-	    driver.get(baseUrl);
+	    driver.get(base);
 	   // screenshotHelper = new ScreenshotHelper();
 	  }
 	  
@@ -69,7 +80,7 @@ public class HomePageTest {
 	    driver.quit();
 	  }
 	  
-	  //@Test
+	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
 		System.out.println(driver.getTitle());
 	    assertEquals("The page title should equal user manager at the start of the test.", "User Manager", driver.getTitle());
