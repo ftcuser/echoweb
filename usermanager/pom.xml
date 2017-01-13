@@ -124,7 +124,7 @@
 		      <goals>
 		        <goal>test</goal>
 		      </goals>
-		      <phase>test</phase>
+		      <phase>test1</phase>
 		      <configuration>
 		
 		      </configuration>
