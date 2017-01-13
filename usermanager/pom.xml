@@ -124,7 +124,7 @@
 		      <goals>
 		        <goal>test</goal>
 		      </goals>
-		      <phase>test1</phase>
+		      <phase>test</phase>
 		      <configuration>
 		
 		      </configuration>
@@ -138,7 +138,7 @@
 	      <version>1.4.1</version>
 	      <executions>
 	        <execution>
-	          <phase>test</phase>
+	          <phase>test1</phase>
 	          <goals>
 	            <goal>npm</goal>
 	            <goal>grunt</goal>
