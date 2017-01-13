@@ -1,7 +1,7 @@
 module.exports = function(config){
 	config.set({
 		frameworks: ['jasmine'],
-		browsers: ['Firefox'],
+		browsers: ['PhantomJS'],
 		files:[
 			   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js',
 			   'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js',
