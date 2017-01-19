@@ -1,0 +1,20 @@
+#!groovy
+
+
+node {
+	echo "Start User Manager Project Pipline"
+	
+	stage ("Get Source Code from Git and Build and Unit Test") {
+		build 'User Manager Build'
+	}
+	
+	stage ("Integrate Test") {
+		build 'User Manager Integration test'
+	}
+	
+	stage ("Docker and Publish") {
+		build 'Docker Build'
+	}
+	
+	echo "Pipeline Completed"
+}
