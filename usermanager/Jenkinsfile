@@ -8,12 +8,20 @@ node {
 		build 'User Manager Build'
 	}
 	
+	stage ("Build Docker Image") {
+	    build 'Docker Build'
+	}
+	
+	stage ("Deploy on local Test Server") {
+	    build 'Start Local Application'
+	}
+	
 	stage ("Integrate Test") {
 		build 'User Manager Integration test'
 	}
 	
-	stage ("Docker and Publish") {
-		build 'Docker Build'
+	stage ("Docker Publish") {
+		build 'Docker Publish'
 	}
 	
 	echo "Pipeline Completed"
