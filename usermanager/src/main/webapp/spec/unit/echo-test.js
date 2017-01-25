@@ -11,7 +11,7 @@ describe('This is an echo service test', function() {
 	});
 	
 	it('Hello world test', function(){
-		expect(echoService.hello()).toBe('Hello World');
+		expect(echoService.hello()).toBe('Hello New World');
 	});
 	
 	it('Echo test', function(){

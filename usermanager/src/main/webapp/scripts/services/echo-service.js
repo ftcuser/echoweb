@@ -5,7 +5,7 @@ angular.module('EchoWebAppModule').factory('EchoService', function(){
 		},
 		
 		hello : function() {
-			return 'Hello World';
+			return 'Hello New World';
 		}
 	}	
 });
