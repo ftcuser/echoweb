@@ -127,9 +127,8 @@
 		      <configuration>
 					<systemPropertyVariables>
 		            	<selenium.hub>${selemium.hub}</selenium.hub>
-		            	<base.url>http://guu.com</base.url>		
+		            	<app.baseurl>http://guu.com</app.baseurl>		
 		          </systemPropertyVariables>
-		           <argLine>-Dbase.url=http://www.ggg.com</argLine>
 		      </configuration>
 		    </execution>       
 		  </executions>
