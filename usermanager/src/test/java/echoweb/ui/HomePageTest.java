@@ -63,7 +63,7 @@ public class HomePageTest {
 		if(base == null) {
 			base = baseUrl;
 		}
-		
+		System.out.println("Selenium HUB : "  + hub);
 		System.out.println("The app URL : "  + base);
 		  
 	    URL hubUrl = null;

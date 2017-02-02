@@ -125,10 +125,7 @@
 		      </goals>
 		      <phase>test</phase>
 		      <configuration>
-					<systemPropertyVariables>
-		            	<selenium.hub>${selemium.hub}</selenium.hub>
-		            	<app.baseurl>http://guu.com</app.baseurl>		
-		          </systemPropertyVariables>
+				
 		      </configuration>
 		    </execution>       
 		  </executions>
