@@ -125,16 +125,11 @@
 		      </goals>
 		      <phase>test</phase>
 		      <configuration>
-				<systemProperties>
-		            <property>
-		              <name>selenium.hub</name>
-		              <value>${selenium.hub}</value>
-		            </property>
-		            <property>
-		              <name>app.baseurl</name>
-		              <value>${app.baseurl}</value>
-		            </property>		            
-		          </systemProperties>
+					<systemPropertyVariables>
+		            <selenium.hub>${selemium.hub}</selenium.hub>
+		            <base.url>${base.url}</base.url>
+		
+		          </systemPropertyVariables>
 		      </configuration>
 		    </execution>       
 		  </executions>
