@@ -43,7 +43,7 @@ public class HomePageTest {
 	  // private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
 	  // private String baseUrl =  "http://192.168.60.135:8080/usermanager";
 	  private String seleniumHub = "http://localhost:4444/wd/hub";
-	  private String baseUrl =  "http://172.18.0.1:9090/usermanager";
+	  private String baseUrl =  "http://172.18.0.111:9090/usermanager";
 	  @Before
 	  public void openBrowser() {
 	  
@@ -61,6 +61,8 @@ public class HomePageTest {
 		if(base == null) {
 			base = baseUrl;
 		}
+		
+		System.out.println(base);
 		  
 	    URL hubUrl = null;
 	    try{
