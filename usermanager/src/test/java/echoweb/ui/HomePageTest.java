@@ -51,6 +51,17 @@ public class HomePageTest {
 	    //driver = new HtmlUnitDriver();
 	    //((HtmlUnitDriver)driver).setJavascriptEnabled(true);
 		  
+		  String line = System.getProperty("SeleniumConfig");
+		  if(line != null) {
+		    String str[] = line.split(",");
+		      for(int i=1;i<str.length;i++){
+		          String arr[] = str[i].split("=");
+		          System.out.println("Key = " + arr[0]);
+		          System.out.println("Value = " +  arr[1]);
+		      }
+		  }
+
+		  
 		//try to get Selenium HUB and bas test URL from JVM parameters
 		String hub =  System.getProperty("selenium.hub");
 		if(hub == null) {
