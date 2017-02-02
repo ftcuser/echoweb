@@ -64,7 +64,7 @@ public class HomePageTest {
 			base = baseUrl;
 		}
 		
-		System.out.println(base);
+		System.out.println("The app URL : "  + base);
 		  
 	    URL hubUrl = null;
 	    try{
@@ -88,7 +88,7 @@ public class HomePageTest {
 	  
 	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
-		System.out.println(driver.getTitle());
+		System.out.println("Page Title : " + driver.getTitle());
 	    assertEquals("The page title should equal user manager at the start of the test.", "User Manager", driver.getTitle());
 	    
 	    addUserButton = driver.findElement(By.id("btnAddUser"));

@@ -126,9 +126,8 @@
 		      <phase>test</phase>
 		      <configuration>
 					<systemPropertyVariables>
-		            <selenium.hub>${selemium.hub}</selenium.hub>
-		            <base.url>http://guu.com</base.url>
-		
+		            	<selenium.hub>${selemium.hub}</selenium.hub>
+		            	<base.url>http://guu.com</base.url>		
 		          </systemPropertyVariables>
 		      </configuration>
 		    </execution>       
