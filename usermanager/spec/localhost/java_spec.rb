@@ -8,7 +8,7 @@ describe file('/usr/bin/java') do
 end
 
 describe command('java -version') do
-  its(:stderr) { should match(/"#{JAVA_VERSION}"/) }
+  its(:stderr) { should match(/"#{JAVA_VERSION}/) }
 end
 
 #describe file('/usr/lib/jvm/java/jre/lib/security/java.security') do
