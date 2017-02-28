@@ -40,10 +40,9 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	  // private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
-	  // private String baseUrl =  "http://192.168.60.135:8080/usermanager";
-	  private String seleniumHub = "http://localhost:4444/wd/hub";
-	  private String baseUrl =  "http://172.18.0.119:9090/usermanager";
+	  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
+	  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
+
 	  
 	  @Before
 	  public void openBrowser() {
@@ -51,9 +50,9 @@ public class HomePageTest {
 	   // driver = new ChromeDriver();
 	    //driver = new HtmlUnitDriver();
 	    //((HtmlUnitDriver)driver).setJavascriptEnabled(true);
-
 		  
 		//try to get Selenium HUB and bas test URL from JVM parameters
+		//This should set on Jenkins
 		String hub =  System.getProperty("selenium.hub");
 		if(hub == null) {
 			hub  = seleniumHub;

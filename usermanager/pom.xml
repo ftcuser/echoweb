@@ -147,6 +147,21 @@
 	        </execution>
 	      </executions>
 	   </plugin>
+	   
+	   <plugin>
+		  <groupId>org.jacoco</groupId>
+		  <artifactId>jacoco-maven-plugin</artifactId>
+		  <version>0.7.9</version>
+		  <executions>
+	        <execution>
+	          <phase>test</phase>
+	          <goals>
+	            <goal>report</goal>	            
+	          </goals>
+	          
+	        </execution>
+	      </executions>
+	   </plugin>
     </plugins>
   </build>
 </project>
