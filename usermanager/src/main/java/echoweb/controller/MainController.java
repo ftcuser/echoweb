@@ -30,7 +30,7 @@ public class MainController extends AbstractController{
 	@RequestMapping("/listusers")
 	@ResponseBody
 	public  List<WebUserBean> listUsers(){
-
+		Hello
 		return userService.getUserList();
 	}
 	
