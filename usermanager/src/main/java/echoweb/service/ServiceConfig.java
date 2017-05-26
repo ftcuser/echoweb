@@ -8,7 +8,7 @@ public class ServiceConfig {
 	
 	@Bean
 	public WebUserService webUserService() {
-		return new WebUserServiceImpl();
+		return new WebUserServiceNoDBImpl();
 	}
 
 }

@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -40,28 +39,32 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
-	  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
-
+	//  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
+	//  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
+	//  private String baseUrl =  "http://54.152.5.185:8080/usermanager";
 	  
+	  private String baseUrl = "http://localhost:8080/usermanager";
+
 	  @Before
 	  public void openBrowser() {
+			String base = System.getProperty("app.baseurl");
+			if(base == null) {
+				base = baseUrl;
+			}
 	  
-	   // driver = new ChromeDriver();
+	    
 	    //driver = new HtmlUnitDriver();
 	    //((HtmlUnitDriver)driver).setJavascriptEnabled(true);
-		  
+	    
+	
 		//try to get Selenium HUB and bas test URL from JVM parameters
 		//This should set on Jenkins
+		/* 
 		String hub =  System.getProperty("selenium.hub");
 		if(hub == null) {
 			hub  = seleniumHub;
 		}
-		
-		String base = System.getProperty("app.baseurl");
-		if(base == null) {
-			base = baseUrl;
-		}
+			
 		System.out.println("Selenium HUB : "  + hub);
 		System.out.println("The app URL : "  + base);
 		  
@@ -74,6 +77,9 @@ public class HomePageTest {
 	    
 	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(hubUrl, cap);
+	    */
+		//Use local Chrome Browser for testing
+		driver = new ChromeDriver();
 	    driverWait = new WebDriverWait(driver, 30);
 	    driver.get(base);
 	   // screenshotHelper = new ScreenshotHelper();
@@ -85,6 +91,9 @@ public class HomePageTest {
 	    driver.quit();
 	  }
 	  
+	  /*
+	   * This is the test case for the application
+	   */
 	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
 		System.out.println("Page Title : " + driver.getTitle());
@@ -106,14 +115,14 @@ public class HomePageTest {
 	    	lastNameField = driver.findElement(By.id("lastName"));
 	    	lastNameField.sendKeys("Smith");
 	    	try{
-	    		Thread.sleep(2000);
+	    		Thread.sleep(5000);
 	    	} catch (Exception e){
 	    		
 	    	}
 	    	addButton = driver.findElement(By.id("btnSubmit"));
 	    	addButton.click();  
 	    	try{
-	    		Thread.sleep(2000);
+	    		Thread.sleep(5000);
 	    	} catch (Exception e){
 	    		
 	    	}
@@ -124,16 +133,12 @@ public class HomePageTest {
 	    	deleteButton.click();
 	    	
 	    	try{
-	    		Thread.sleep(2000);
+	    		Thread.sleep(5000);
 	    	} catch (Exception e){
 	    		
 	    	}
 	    }
-	    /*
-	    WebElement searchField = driver.findElement(By.name("q"));
-	    searchField.sendKeys("Drupal!");
-	    searchField.submit();
-	    */
+	
 	  }
 	  
 	  private class ScreenshotHelper {
