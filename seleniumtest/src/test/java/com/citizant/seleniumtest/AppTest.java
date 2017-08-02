@@ -1,5 +1,10 @@
 package com.citizant.seleniumtest;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -30,9 +35,16 @@ public class AppTest
 
     /**
      * Rigourous Test :-)
+     * @throws SQLException 
      */
-    public void testApp()
+    public void testApp() throws SQLException
     {
         assertTrue( true );
+        String sql = "select * from table where id=?";
+        Connection conn = null;
+        PreparedStatement pst = conn.prepareStatement(sql);
+        pst.setInt(1, 123);
+        ResultSet rs = pst.executeQuery();
+        int rows = pst.executeUpdate();
     }
 }
