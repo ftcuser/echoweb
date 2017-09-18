@@ -76,12 +76,6 @@
 	    <version>1.9.13</version>
 	</dependency>
 	
-	<!-- AWS SDK -->
-	<dependency>
-	    <groupId>com.amazonaws</groupId>
-	    <artifactId>aws-java-sdk</artifactId>
-	    <version>1.11.22</version>
-	 </dependency>
 	<!-- Selenium Test -->
 
 	<dependency>

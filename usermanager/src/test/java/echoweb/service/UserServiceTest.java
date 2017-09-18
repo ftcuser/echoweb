@@ -13,7 +13,7 @@ public class UserServiceTest {
 	@Test
 	public void serviceTest() {
 		
-		WebUserService service = new WebUserServiceImpl();
+		WebUserService service = new WebUserServiceNoDBImpl();
 		WebUserBean userBean = new WebUserBean("joe@test.com", "Joe", "Smith");
 		service.updateUser(userBean);
 		List<WebUserBean> users = service.getUserList();
