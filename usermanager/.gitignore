@@ -6,3 +6,5 @@
 /node_modules/
 /screenshot.png
 *.DS_Store
+/target-grunt/
+/pom.cargo.template.xml
