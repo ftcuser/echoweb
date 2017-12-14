@@ -59,7 +59,7 @@ public class HomePageTest {
 	
 		//try to get Selenium HUB and bas test URL from JVM parameters
 		//This should set on Jenkins
-		/* 
+		
 		String hub =  System.getProperty("selenium.hub");
 		if(hub == null) {
 			hub  = seleniumHub;
@@ -77,9 +77,10 @@ public class HomePageTest {
 	    
 	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(hubUrl, cap);
-	    */
+	   
 		//Use local Chrome Browser for testing
-		driver = new ChromeDriver();
+	//	driver = new ChromeDriver();
+		
 	    driverWait = new WebDriverWait(driver, 30);
 	    driver.get(base);
 	   // screenshotHelper = new ScreenshotHelper();
