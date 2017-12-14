@@ -22,6 +22,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.net.URL;
 
 /*
  * Selenium Test Case
@@ -39,11 +40,11 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	//  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
+	  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
 	//  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
-	//  private String baseUrl =  "http://54.152.5.185:8080/usermanager";
+	   private String baseUrl =  "http://54.152.5.185:8080/usermanager";
 	  
-	  private String baseUrl = "http://localhost:8080/usermanager";
+	//  private String baseUrl = "http://localhost:8080/usermanager";
 
 	  @Before
 	  public void openBrowser() {
@@ -59,7 +60,7 @@ public class HomePageTest {
 	
 		//try to get Selenium HUB and bas test URL from JVM parameters
 		//This should set on Jenkins
-		/* 
+		
 		String hub =  System.getProperty("selenium.hub");
 		if(hub == null) {
 			hub  = seleniumHub;
@@ -77,9 +78,9 @@ public class HomePageTest {
 	    
 	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(hubUrl, cap);
-	    */
+	    
 		//Use local Chrome Browser for testing
-		driver = new ChromeDriver();
+		//	driver = new ChromeDriver();
 	    driverWait = new WebDriverWait(driver, 30);
 	    driver.get(base);
 	   // screenshotHelper = new ScreenshotHelper();
