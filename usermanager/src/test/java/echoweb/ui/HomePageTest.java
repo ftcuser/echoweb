@@ -39,11 +39,11 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	//  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
+	  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
 	//  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
-	//  private String baseUrl =  "http://54.152.5.185:8080/usermanager";
+	  private String baseUrl =  "http://54.152.5.185:8080/usermanager";
 	  
-	  private String baseUrl = "http://localhost:8080/usermanager";
+	//  private String baseUrl = "http://localhost:8080/usermanager";
 
 	  @Before
 	  public void openBrowser() {
