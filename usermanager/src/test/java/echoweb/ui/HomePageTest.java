@@ -40,9 +40,7 @@ public class HomePageTest {
 	  private WebElement addButton;
 	  
 	//  private String seleniumHub = "http://192.168.60.135:4444/wd/hub";
-	//  private String baseUrl =  "http://192.168.60.135:8080/usermanager";
-	//  private String baseUrl =  "http://54.152.5.185:8080/usermanager";
-	  
+	
 	  private String baseUrl = "http://localhost:8080/usermanager";
 
 	  @Before
@@ -78,8 +76,9 @@ public class HomePageTest {
 	    Capabilities cap = DesiredCapabilities.chrome();
 	    driver = new RemoteWebDriver(hubUrl, cap);
 	    */
-		//Use local Chrome Browser for testing
-		driver = new ChromeDriver();
+		  
+	    //Use local Chrome Browser for testing
+	    driver = new ChromeDriver();
 	    driverWait = new WebDriverWait(driver, 30);
 	    driver.get(base);
 	   // screenshotHelper = new ScreenshotHelper();
@@ -96,8 +95,10 @@ public class HomePageTest {
 	   */
 	  @Test
 	  public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
+		  
 		System.out.println("Page Title : " + driver.getTitle());
-	    assertEquals("The page title should equal user manager at the start of the test.", "User Manager", driver.getTitle());
+	    assertEquals("The page title should equal user manager at the start of the test.", 
+			 "User Manager", driver.getTitle());
 	    
 	    addUserButton = driver.findElement(By.id("btnAddUser"));
 	    
