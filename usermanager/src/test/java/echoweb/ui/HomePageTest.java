@@ -63,7 +63,7 @@ public class HomePageTest {
 	 * This is the test case for the application
 	 */
 	@Test
-	public void pageTitleAfterSearchShouldBeginWithDrupal() throws IOException {
+	public void addDeleteNewUserTest() throws IOException {
 
 		System.out.println("Page Title : " + driver.getTitle());
 
