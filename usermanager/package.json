@@ -9,7 +9,7 @@
     "jasmine": "^3.3.1",
     "karma": "^4.0.1",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^2.0.1"
+    "karma-jasmine": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "npm": "^6.9.0"
   }
