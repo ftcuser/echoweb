@@ -1,4 +1,4 @@
 FROM tomcat:8.5-alpine
+MAINTAINER "Rupesh Kumar">
 ADD target/usermanager.war /usr/local/tomcat/webapps
-EXPOSE 8092
-CMD ["catalina.sh", "run"]
+ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
