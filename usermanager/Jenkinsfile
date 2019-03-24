@@ -4,6 +4,9 @@ def DOCKER_HUB_USER="ftchub"
 def HTTP_PORT="8080"
 def HOST_PORT="8090"
 
+def hostUrl="ec2-34-232-13-73.compute-1.amazonaws.com"
+def hubPort="4444"
+
 // Tag settings
 
 def String PipelineEnvironment = "SEVIS-Challenge"
@@ -86,7 +89,7 @@ node {
 
     stage("Security Scan") {
         sh 'mvn -f usermanager/pom.xml com.github.spotbugs:spotbugs-maven-plugin:3.1.1:spotbugs'
-        //step([$class: 'FindBugsPublisher', pattern: '**/target/spotbugsXml.xml'])
+        //step([$class: 'FindBugsPubl;isher', pattern: '**/target/spotbugsXml.xml'])
         findbugs canComputeNew: false, defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', pattern: '**/target/spotbugsXml.xml', unHealthy: ''    
         //def spotbugs = scanForIssues tool: [$class: 'SpotBugs'], pattern: '**/target/spotbugsXml.xml'
         //publishIssues issues:[spotbugs]
@@ -119,7 +122,9 @@ node {
     }
     
     stage('Functional Test') {
-        //sh "mvn -f usermanager/pom-selenium.xml test -Dapp.baseurl=http://ec2-34-232-13-73.compute-1.amazonaws.com:8090/usermanager/index.html -Dselenium.hub=http://ec2-34-232-13-73.compute-1.amazonaws.com:4444/wd/hub"
+    //sh "mvn -f usermanager/pom-selenium.xml test -Dapp.baseurl=http://ec2-34-232-13-73.compute-1.amazonaws.com:8090/usermanager/index.html -Dselenium.hub=http://ec2-34-232-13-73.compute-1.amazonaws.com:4444/wd/hub"
+    sh "mvn -f usermanager/pom-selenium.xml test -Dapp.baseurl=http://${hostUrl}:${HOST_PORT}/usermanager/index.html -Dselenium.hub=http://${hostUrl}:${hubPort}/wd/hub"
+    
     }
     
     sendEmail(SuccessSubject, SuccessBody, SuccessRecipient, ReplyTo)	
@@ -143,7 +148,7 @@ def pushToImage(containerName, tag, dockerUser, dockerPassword){
     sh "cd usermanager;docker tag $containerName:$tag $dockerUser/$containerName:$tag"
     sh "cd usermanager;docker push $dockerUser/$containerName:$tag"
     echo "Image push complete"
-}
+};
 
 def runApp(containerName, tag, dockerHubUser, httpPort, hostPort){
     sh "cd usermanager;docker pull $dockerHubUser/$containerName"
