@@ -40,8 +40,8 @@ public class HomePageTest {
 	  private WebElement lastNameField;
 	  private WebElement addButton;
 	  
-	  private String seleniumHub = "http://34.232.13.73:4444/wd/hub";
-	   private String baseUrl =  "http://34.232.13.73:8090/usermanager";
+	  private String seleniumHub = "http://ec2-34-232-13-73.compute-1.amazonaws.com:4444/wd/hub";
+	   private String baseUrl =  "http://ec2-34-232-13-73.compute-1.amazonaws.com:8090/usermanager";
 
 	  @Before
 	  public void openBrowser() {
