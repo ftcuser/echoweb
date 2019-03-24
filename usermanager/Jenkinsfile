@@ -122,7 +122,6 @@ node {
     }
     
     stage('Functional Test') {
-    //sh "mvn -f usermanager/pom-selenium.xml test -Dapp.baseurl=http://ec2-34-232-13-73.compute-1.amazonaws.com:8090/usermanager/index.html -Dselenium.hub=http://ec2-34-232-13-73.compute-1.amazonaws.com:4444/wd/hub"
     sh "mvn -f usermanager/pom-selenium.xml test -Dapp.baseurl=http://${hostUrl}:${HOST_PORT}/usermanager/index.html -Dselenium.hub=http://${hostUrl}:${hubPort}/wd/hub"
     
     }
