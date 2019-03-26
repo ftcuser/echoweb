@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.citizant</groupId>
-  <artifactId>usermanager</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>usermanager Maven Webapp</name>
+    <groupId>com.test.mongo</groupId>
+    <artifactId>mongo</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <packaging>war</packaging>
+   <name>Mongo</name>
   <url>http://maven.apache.org</url>
   <properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
+	<spring.version>3.0.5.RELEASE</spring.version>
   </properties>
   <dependencies>
     <dependency>
@@ -105,7 +105,7 @@
 	 
   </dependencies>
   <build>
-    <finalName>usermanager</finalName>
+    <finalName>Mongo</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
