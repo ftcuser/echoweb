@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /*
  * A Selenium Test Case for User Manager Application
  */
-public class HomePageTest {
+public class HomePageIT {
 
 	private WebDriver driver;
 	private ScreenshotHelper screenshotHelper;

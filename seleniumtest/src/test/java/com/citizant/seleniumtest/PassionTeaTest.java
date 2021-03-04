@@ -21,12 +21,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * This is a simple Selenium test case that hit http://www.practiceselenium.com
  * 
  */
-		
+
 public class PassionTeaTest {
 
 	private WebDriver driver;
 	private ScreenshotHelper screenshotHelper;
-	private WebDriverWait driverWait;
 	private String baseUrl = "http://www.practiceselenium.com/";
 
 	@Before
@@ -38,14 +37,15 @@ public class PassionTeaTest {
 
 		// Use local Chrome Browser for testing
 		driver = new ChromeDriver();
-		driverWait = new WebDriverWait(driver, 30);
+		// set timeout to 30 seconds
+		new WebDriverWait(driver, 30);
 		driver.get(base);
-		// screenshotHelper = new ScreenshotHelper();
+		screenshotHelper = new ScreenshotHelper();
 	}
 
 	@After
 	public void saveScreenshotAndCloseBrowser() throws IOException {
-		// screenshotHelper.saveScreenshot("screenshot.png");
+		screenshotHelper.saveScreenshot("screenshot.png");
 		driver.quit();
 	}
 
@@ -58,53 +58,44 @@ public class PassionTeaTest {
 		assertEquals("The page title should equal Welcome at the start of the test.", "Welcome", driver.getTitle());
 
 		WebElement herbalTeaLink = driver.findElement(By.id("wsb-button-00000000-0000-0000-0000-000450914890"));
-
 		delay(2);
 		// click on the link
 		herbalTeaLink.click();
 
 		// Check if the tea element is there
 		WebElement greenTeaCheckoutBtn = driver.findElement(By.id("wsb-button-00000000-0000-0000-0000-000451955160"));
-		//Click on checkout link
+		// Click on checkout link
 		delay(5);
 		greenTeaCheckoutBtn.click();
-		
-		//Fill the form fileds
+
+		// Fill the form fields
 		WebElement emailTxt = driver.findElement(By.id("email"));
 		emailTxt.sendKeys("hello@word.com");
-		
 		WebElement nameTxt = driver.findElement(By.id("name"));
 		nameTxt.sendKeys("Hello World");
-		
 		WebElement addressTxt = driver.findElement(By.id("address"));
 		addressTxt.sendKeys("123 Elm St, Chantilly, VA 20151");
-		
 		WebElement cardTypeTxt = driver.findElement(By.id("card_type"));
 		cardTypeTxt.sendKeys("VISA");
-		
 		WebElement cardNumberTxt = driver.findElement(By.id("card_number"));
 		cardNumberTxt.sendKeys("1234 5678 9011 1123");
-		
 		WebElement cardNameTxt = driver.findElement(By.id("cardholder_name"));
 		cardNameTxt.sendKeys("Hello World");
-		
 		WebElement cardVerTxt = driver.findElement(By.id("verification_code"));
 		cardVerTxt.sendKeys("123");
-				
 		delay(5);
-		//Submit Form
+		// Submit Form
 		WebElement submitBtn = driver.findElement(By.className("btn-primary"));
 		submitBtn.click();
 		delay(5);
-		//Back to Home Page
+		// Back to Home Page
 		WebElement homeLink = driver.findElement(By.linkText("Welcome"));
 		homeLink.click();
-		
+
 		delay(10);
 	}
 
 	private class ScreenshotHelper {
-
 		public void saveScreenshot(String screenshotFileName) throws IOException {
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshot, new File(screenshotFileName));
@@ -118,5 +109,4 @@ public class PassionTeaTest {
 
 		}
 	}
-
 }

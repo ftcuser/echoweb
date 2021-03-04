@@ -28,7 +28,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePageRecordedTest {
+public class HomePageRecordedIT {
 	private WebDriver driver;
 	private String baseUrl;
 	private boolean acceptNextAlert = true;
@@ -36,8 +36,6 @@ public class HomePageRecordedTest {
 
 	@Before
 	public void setUp() throws Exception {
-		// -- driver = new FirefoxDriver();
-		// ++ changed to Chrome
 		driver = new ChromeDriver();
 		baseUrl = "http://localhost:8080/usermanager";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -93,12 +91,12 @@ public class HomePageRecordedTest {
 		}
 	}
 
-	//++ added better wait for element
+	// ++ added better wait for element
 	public WebElement getWhenVisible(By locator, int timeout) {
-	    WebElement element = null;
-	    WebDriverWait wait = new WebDriverWait(driver, timeout);
-	    element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-	    return element;
+		WebElement element = null;
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
+		element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return element;
 	}
 
 	private boolean isAlertPresent() {

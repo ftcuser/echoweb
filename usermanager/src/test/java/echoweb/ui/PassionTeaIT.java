@@ -17,16 +17,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 /*
  * This is a simple Selenium test case that hit http://www.practiceselenium.com
  * 
  */
-		
-public class PassionTeaTest {
+
+public class PassionTeaIT {
 
 	private WebDriver driver;
+	@SuppressWarnings("unused")
 	private ScreenshotHelper screenshotHelper;
+	@SuppressWarnings("unused")
 	private WebDriverWait driverWait;
 	private String baseUrl = "http://www.practiceselenium.com/";
 
@@ -66,46 +67,47 @@ public class PassionTeaTest {
 
 		// Check if the tea element is there
 		WebElement greenTeaCheckoutBtn = driver.findElement(By.id("wsb-button-00000000-0000-0000-0000-000451955160"));
-		//Click on checkout link
+		// Click on checkout link
 		delay(2);
 		greenTeaCheckoutBtn.click();
-		
-		//Fill the form fileds
+
+		// Fill the form fileds
 		WebElement emailTxt = driver.findElement(By.id("email"));
 		emailTxt.sendKeys("hello@word.com");
-		
+
 		WebElement nameTxt = driver.findElement(By.id("name"));
 		nameTxt.sendKeys("Hello World");
-		
+
 		WebElement addressTxt = driver.findElement(By.id("address"));
 		addressTxt.sendKeys("123 Elm St, Chantilly, VA 20151");
-		
+
 		WebElement cardTypeTxt = driver.findElement(By.id("card_type"));
 		cardTypeTxt.sendKeys("VISA");
-		
+
 		WebElement cardNumberTxt = driver.findElement(By.id("card_number"));
 		cardNumberTxt.sendKeys("1234 5678 9011 1123");
-		
+
 		WebElement cardNameTxt = driver.findElement(By.id("cardholder_name"));
 		cardNameTxt.sendKeys("Hello World");
-		
+
 		WebElement cardVerTxt = driver.findElement(By.id("verification_code"));
 		cardVerTxt.sendKeys("123");
-				
+
 		delay(2);
-		//Submit Form
+		// Submit Form
 		WebElement submitBtn = driver.findElement(By.className("btn-primary"));
 		submitBtn.click();
 		delay(2);
-		//Back to Home Page
+		// Back to Home Page
 		WebElement homeLink = driver.findElement(By.linkText("Welcome"));
 		homeLink.click();
-		
+
 		delay(2);
 	}
 
 	private class ScreenshotHelper {
 
+		@SuppressWarnings("unused")
 		public void saveScreenshot(String screenshotFileName) throws IOException {
 			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshot, new File(screenshotFileName));
